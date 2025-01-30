@@ -18,8 +18,8 @@
         <div class="head-holding">
             <!-- Div for the screen of the calculator -->
             <div class="screen-ctn">
-                <div class="screen-top"><span class="history">12341</span></div>
-                <div class="screen-bottom"><span class="result">123</span></div>
+                <div class="screen-top"><span id="history" class="history"></span></div>
+                <div class="screen-bottom"><span id="result" class="result"></span></div>
                 
             </div>
 
@@ -34,23 +34,23 @@
             <div class="btn-holding">
 
                 <div class="btn-division">
-                    <div class="btn-ctn" id="btn-ctn-7"><button class="body-btn" id="btn-7">7</button></div>
-                    <div class="btn-ctn" id="btn-ctn-8"><button class="body-btn" id="btn-8">8</button></div>
-                    <div class="btn-ctn" id="btn-ctn-9"><button class="body-btn" id="btn-9">9</button></div>
+                    <div class="btn-ctn" id="btn-ctn-7"><button class="body-btn" data-value="7" id="btn-7">7</button></div>
+                    <div class="btn-ctn" id="btn-ctn-8"><button class="body-btn" data-value="8" id="btn-8">8</button></div>
+                    <div class="btn-ctn" id="btn-ctn-9"><button class="body-btn" data-value="9" id="btn-9">9</button></div>
                 </div>
                 <div class="btn-division">
-                    <div class="btn-ctn" id="btn-ctn-4"><button class="body-btn" id="btn-4">4</button></div>
-                    <div class="btn-ctn" id="btn-ctn-5"><button class="body-btn" id="btn-5">5</button></div>
-                    <div class="btn-ctn" id="btn-ctn-6"><button class="body-btn" id="btn-6">6</button></div>
+                    <div class="btn-ctn" id="btn-ctn-4"><button class="body-btn" data-value="4" id="btn-4">4</button></div>
+                    <div class="btn-ctn" id="btn-ctn-5"><button class="body-btn" data-value="5" id="btn-5">5</button></div>
+                    <div class="btn-ctn" id="btn-ctn-6"><button class="body-btn" data-value="6" id="btn-6">6</button></div>
                 </div>
                 <div class="btn-division">
-                    <div class="btn-ctn" id="btn-ctn-1"><button class="body-btn" id="btn-1">1</button></div>
-                    <div class="btn-ctn" id="btn-ctn-2"><button class="body-btn" id="btn-2">2</button></div>
-                    <div class="btn-ctn" id="btn-ctn-3"><button class="body-btn" id="btn-3">3</button></div>
+                    <div class="btn-ctn" id="btn-ctn-1"><button class="body-btn" data-value="1" id="btn-1">1</button></div>
+                    <div class="btn-ctn" id="btn-ctn-2"><button class="body-btn" data-value="2" id="btn-2">2</button></div>
+                    <div class="btn-ctn" id="btn-ctn-3"><button class="body-btn" data-value="3" id="btn-3">3</button></div>
                 </div>
                 <div class="btn-division">
-                    <div class="btn-ctn" id="btn-ctn-0"><button class="body-btn" id="btn-0">0</button></div>
-                    <div class="btn-ctn" id="btn-ctn-dot"><button class="body-btn" id="btn-dot">.</button></div>
+                    <div class="btn-ctn" id="btn-ctn-0"><button class="body-btn" data-value="0" id="btn-0">0</button></div>
+                    <div class="btn-ctn" id="btn-ctn-dot"><button class="body-btn" data-value="." id="btn-dot">.</button></div>
                     <div class="btn-ctn" id="btn-ctn-equal"><button class="body-btn" id="btn-equal">=</button></div>
                 </div>
                 
@@ -58,10 +58,10 @@
 
             <div class="opr-holding">
 
-                <div class="btn-opr-ctn"><button class="btn-opr" id="btn-div">/</button></div>
-                <div class="btn-opr-ctn"><button class="btn-opr" id="btn-mul">X</button></div>
-                <div class="btn-opr-ctn"><button class="btn-opr" id="btn-sub">-</button></div>
-                <div class="btn-opr-ctn"><button class="btn-opr" id="btn-add">+</button></div>
+                <div class="btn-opr-ctn"><button class="btn-opr" data-value="÷" id="btn-div">÷</button></div>
+                <div class="btn-opr-ctn"><button class="btn-opr" data-value="×" id="btn-mul">×</button></div>
+                <div class="btn-opr-ctn"><button class="btn-opr" data-value="−" id="btn-sub">−</button></div>
+                <div class="btn-opr-ctn"><button class="btn-opr" data-value="+" id="btn-add">+</button></div>
                 
             </div>
         </div>
