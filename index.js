@@ -3,47 +3,59 @@ let buttons = document.querySelectorAll("button");
 let result = document.getElementById("result");
 let history = document.getElementById("history");
 
-// Adding an event listener if clicked
+
 buttons.forEach(button => {
 button.addEventListener("click", () => {
 
-    // Getting the value of the button which was clicked
     let value = button.dataset.value;
 
-    // Checking if clear button was clicked
     if ( value == "clear" ) clear();
 
-    // Now changing the display based on what was clicked
-    else
-    result.textContent += value.toString();
+    else if ( value == "=" ) calculate();
+
+    else result.textContent += value.toString();
 })
 })
 
-// Function to clear all the values within the calculator
+function calculate()
+{
+    const expression = separator(result.textContent.toString());
+    
+    const answer = operate(expression[0], expression[2], expression[1]);
+
+    result.textContent = answer.toString();
+}
+
+function separator(numberInStringFormat)
+{
+    return numberInStringFormat.split(/([+\-*/])/);
+}
+
 function clear()
 {
-    // Resetting values
     result.innerHTML = "";
     history.innerHTML = "";
 }
 
-// Ok so first making functions for the function for the operate
 function operate(num1, num2, operator)
 {
+    num1 = Number.parseInt(num1);
+    num2 = Number.parseInt(num2);
+
     // Checking which kind of operation was selected and performing calculation as expected
     switch (operator) {
 
-        case "ADD":
+        case "+":
             return num1 + num2;
-        case "SUB":
+        case "-":
             return num1 - num2;
-        case "MUL":
+        case "*":
             return num1 * num2;
-        case "DIV":
+        case "/":
             return num1 / num2;
     
         // If any kind of error occurs
         default:
-            return NaN;
+            return "Error";
     }
 }
