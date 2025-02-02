@@ -13,22 +13,36 @@ button.addEventListener("click", () => {
 
     else if ( value == "=" ) calculate();
 
-    else result.textContent += value.toString();
+    else 
+    {
+        result.textContent += value.toString();
+    };
 })
 })
 
-function calculate()
-{
-    const expression = separator(result.textContent.toString());
-    
-    const answer = operate(expression[0], expression[2], expression[1]);
-
-    result.textContent = answer.toString();
+function calculate() {
+    try 
+    {
+        const expression = separator(result.textContent);
+        const answer = evaluateExpression(expression);
+        
+        history.textContent = result.textContent;
+        result.textContent = answer.toString();
+    } 
+    catch (error)
+    {
+        result.textContent = "System Failure";
+    }
 }
 
 function separator(numberInStringFormat)
 {
     return numberInStringFormat.split(/([+\-*/])/);
+}
+
+function clearScreen()
+{
+    result.innerHTML = "";
 }
 
 function clear()
@@ -37,10 +51,51 @@ function clear()
     history.innerHTML = "";
 }
 
+function evaluateExpression(tokens) {
+    let numbers = [];
+    let operators = [];
+
+    const precedence = {
+        '+': 1,
+        '-': 1,
+        '*': 2,
+        '/': 2
+    };
+
+    // Helper function to perform operations
+    function applyOperator() {
+        const operator = operators.pop();
+        const b = numbers.pop();
+        const a = numbers.pop();
+        numbers.push(operate(a, b, operator));
+    }
+
+    tokens.forEach(token => {
+        if (!isNaN(token)) {
+            numbers.push(parseFloat(token));
+        } else if (['+', '-', '*', '/'].includes(token)) {
+            while (
+                operators.length &&
+                precedence[operators[operators.length - 1]] >= precedence[token]
+            ) {
+                applyOperator();
+            }
+            operators.push(token);
+        }
+    });
+
+    // Apply remaining operators
+    while (operators.length) {
+        applyOperator();
+    }
+
+    return numbers[0];
+}
+
 function operate(num1, num2, operator)
 {
-    num1 = Number.parseInt(num1);
-    num2 = Number.parseInt(num2);
+    num1 = Number.parseFloat(num1);
+    num2 = Number.parseFloat(num2);
 
     // Checking which kind of operation was selected and performing calculation as expected
     switch (operator) {
@@ -52,7 +107,7 @@ function operate(num1, num2, operator)
         case "*":
             return num1 * num2;
         case "/":
-            return num1 / num2;
+            return num2 !== 0 ? num1 / num2 : "Project SkyNet";
     
         // If any kind of error occurs
         default:

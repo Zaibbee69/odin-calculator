@@ -44,8 +44,8 @@ section
     background-color: light;
     border-radius: 10px;
     border: 2px solid black;
-    border-right: 2px outset #ff0080;
-    border-left: 2px inset #50fefe;
+    border-right: 10px outset #ff0080;
+    border-left: 5px inset #50fefe;
     
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -179,14 +179,15 @@ section
     margin-bottom: 10px;
     border-radius: 4px;
     width: 395px;
+    overflow: hidden;
     height: 90px;
-
 }
 
 .screen-bottom, .screen-top
 {
     display: flex;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .result
@@ -194,6 +195,7 @@ section
     margin-top: 16px;
     font-size: x-large;
     font-family: monospace;
+    overflow: hidden;
     font-weight: bold;
 }
 
@@ -203,6 +205,7 @@ section
     font-family: monospace;
     color: #ff0080;
     font-weight: bolder;
+    overflow: hidden;
     font-size: large;
 }
 
